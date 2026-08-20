@@ -1,0 +1,1052 @@
+/* ========================================
+   SINGAPORE TRIP 2026
+   Editorial Travel Design
+======================================== */
+
+
+/* ---------- 基本設定 ---------- */
+
+:root {
+    --paper: #f3f0e9;
+    --paper-dark: #e5e0d7;
+    --ink: #181817;
+    --muted: #77736c;
+    --red: #c94b42;
+    --white: #ffffff;
+    --line: #d5d0c7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 64px;
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(243, 240, 233, 0.94);
+
+    border-bottom: 1px solid var(--line);
+
+    backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--muted);
+    font-size: 12px;
+
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--ink);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--red);
+
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ========================================
+   HERO 主視覺
+======================================== */
+
+.hero {
+    position: relative;
+
+    width: 92%;
+    max-width: 1400px;
+
+    height: 78vh;
+    min-height: 560px;
+
+    margin: 24px auto 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.05)
+        ),
+        url("https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=2200&q=90")
+        center / cover;
+}
+
+.hero-overlay {
+    position: absolute;
+
+    left: 6%;
+    bottom: 8%;
+
+    color: var(--white);
+}
+
+.hero-small {
+    margin-bottom: 14px;
+
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    opacity: 0.8;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(70px, 12vw, 170px);
+
+    font-weight: 800;
+
+    line-height: 0.82;
+
+    letter-spacing: -8px;
+}
+
+.hero p {
+    margin: 28px 0 2px;
+
+    font-size: 16px;
+}
+
+.hero span {
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    opacity: 0.7;
+}
+
+
+/* ========================================
+   QUICK INFO
+======================================== */
+
+.quick-info {
+    position: relative;
+    z-index: 5;
+
+    width: 82%;
+    max-width: 1100px;
+
+    margin: -42px auto 110px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    background: var(--white);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+.quick-info div {
+    padding: 24px 26px;
+
+    border-right: 1px solid var(--line);
+}
+
+.quick-info div:last-child {
+    border-right: none;
+}
+
+.quick-info small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.quick-info strong {
+    font-size: 14px;
+}
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.container {
+    width: 82%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+.section {
+    margin-bottom: 150px;
+}
+
+.section-label {
+    margin-bottom: 8px;
+
+    color: var(--red);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.section h2 {
+    margin: 0;
+
+    font-size: clamp(40px, 6vw, 72px);
+
+    line-height: 0.95;
+    letter-spacing: -3px;
+}
+
+.intro {
+    max-width: 560px;
+
+    margin-top: 20px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   DAY 按鈕
+======================================== */
+
+.day-tabs {
+    display: flex;
+
+    gap: 8px;
+
+    margin: 45px 0 40px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+.day-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.day-tabs button {
+    flex: 0 0 auto;
+
+    padding: 12px 18px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: 0.2s ease;
+}
+
+.day-tabs button:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+.day-tabs button.active {
+    background: var(--ink);
+
+    border-color: var(--ink);
+
+    color: var(--white);
+}
+
+
+/* ========================================
+   DAY 內容
+======================================== */
+
+.day {
+    display: none;
+}
+
+.day.active {
+    display: block;
+}
+
+
+/* ========================================
+   DAY HEADER
+======================================== */
+
+.day-header {
+    position: relative;
+
+    min-height: 340px;
+
+    margin-bottom: 60px;
+
+    padding: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.15)
+        ),
+        url("https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1800&q=90")
+        center / cover;
+}
+
+.day-header small {
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    opacity: 0.7;
+}
+
+.day-header h3 {
+    margin: 5px 0;
+
+    font-size: clamp(38px, 6vw, 65px);
+
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.day-header p {
+    margin: 8px 0 0;
+
+    font-size: 12px;
+
+    opacity: 0.75;
+}
+
+
+/* ========================================
+   時間軸
+======================================== */
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 105px;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: var(--line);
+}
+
+.event {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 75px 1fr;
+
+    gap: 60px;
+
+    margin-bottom: 30px;
+}
+
+.event::before {
+    content: "";
+
+    position: absolute;
+
+    left: 99px;
+    top: 28px;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    border: 4px solid var(--paper);
+
+    z-index: 2;
+}
+
+.event time {
+    padding-top: 22px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-align: right;
+
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   行程卡片
+======================================== */
+
+.event-card {
+    padding: 28px 30px;
+
+    background: var(--white);
+
+    border-left: 4px solid transparent;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+    transform: translateX(5px);
+
+    border-left-color: var(--red);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.07);
+}
+
+.event-card > small {
+    color: var(--red);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.event-card h4 {
+    margin: 5px 0 0;
+
+    font-size: 24px;
+
+    line-height: 1.25;
+}
+
+.event-card .english {
+    margin: 2px 0 16px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    letter-spacing: 0.5px;
+}
+
+.event-card p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   TAGS
+======================================== */
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 18px;
+}
+
+.tags span {
+    padding: 5px 9px;
+
+    background: var(--paper);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   今日路線
+======================================== */
+
+.route {
+    margin-top: 55px;
+
+    padding: 30px 35px;
+
+    background: var(--ink);
+
+    color: var(--white);
+}
+
+.route small {
+    color: #999;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.route p {
+    margin: 14px 0 0;
+
+    font-size: 12px;
+
+    line-height: 2.2;
+}
+
+.route b {
+    padding: 0 8px;
+
+    color: var(--red);
+}
+
+
+/* ========================================
+   尚未規劃的 DAY
+======================================== */
+
+.empty-day {
+    min-height: 330px;
+
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: var(--paper-dark);
+}
+
+.empty-day small {
+    color: var(--red);
+
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.empty-day h3 {
+    margin: 10px 0;
+
+    font-size: 42px;
+
+    line-height: 1;
+}
+
+.empty-day p {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   航班
+======================================== */
+
+.flight-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 2px;
+
+    margin-top: 50px;
+}
+
+.flight-card {
+    padding: 42px;
+
+    background: var(--ink);
+
+    color: var(--white);
+}
+
+.flight-card:nth-child(2) {
+    background: #302f2c;
+}
+
+.flight-card > small {
+    color: #999;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.flight-card h3 {
+    margin: 10px 0 45px;
+
+    font-size: 32px;
+}
+
+.flight-route {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.flight-route strong {
+    display: block;
+
+    font-size: 42px;
+
+    line-height: 1;
+}
+
+.flight-route span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #999;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.flight-route b {
+    color: var(--red);
+
+    font-size: 22px;
+}
+
+.flight-card > p {
+    margin-top: 35px;
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+/* ========================================
+   住宿
+======================================== */
+
+.hotel-card {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    margin-top: 50px;
+
+    background: var(--white);
+}
+
+.hotel-image {
+    min-height: 480px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+        ),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=90")
+        center / cover;
+
+    font-size: 0;
+}
+
+.hotel-info {
+    padding: 55px;
+}
+
+.hotel-info > small {
+    color: var(--red);
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.hotel-info h3 {
+    margin: 8px 0 0;
+
+    font-size: 44px;
+
+    line-height: 1;
+}
+
+.hotel-info .english {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.hotel-info hr {
+    margin: 40px 0;
+
+    border: 0;
+
+    border-top: 1px solid var(--line);
+}
+
+.hotel-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+.hotel-details small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.hotel-details strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 12px;
+}
+/* ========================================
+   CHECKLIST
+======================================== */
+
+.checklist {
+    margin-top: 45px;
+
+    background: var(--white);
+}
+
+.checklist label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px 25px;
+
+    border-bottom: 1px solid var(--line);
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.checklist label:hover {
+    padding-left: 30px;
+}
+
+.checklist label:last-child {
+    border-bottom: none;
+}
+
+.checklist input {
+    width: 17px;
+    height: 17px;
+
+    accent-color: var(--red);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    margin-top: 100px;
+
+    padding: 110px 20px;
+
+    background: var(--ink);
+
+    color: var(--white);
+
+    text-align: center;
+}
+
+footer h2 {
+    margin: 0;
+
+    font-size: clamp(40px, 7vw, 85px);
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+}
+
+footer p {
+    margin-top: 25px;
+
+    color: #777;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .nav {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+
+    .hero {
+        width: 94%;
+
+        height: 65vh;
+        min-height: 480px;
+
+        margin-top: 15px;
+    }
+
+    .hero-overlay {
+        left: 25px;
+        bottom: 35px;
+    }
+
+    .hero h1 {
+        font-size: 68px;
+
+        letter-spacing: -4px;
+    }
+
+
+    .quick-info {
+        width: 90%;
+
+        margin-top: -25px;
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-info div {
+        padding: 18px;
+    }
+
+    .quick-info div:nth-child(2) {
+        border-right: none;
+    }
+
+    .quick-info div:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+
+    .container {
+        width: 90%;
+    }
+
+    .section {
+        margin-bottom: 100px;
+    }
+
+
+    .day-header {
+        min-height: 260px;
+
+        padding: 25px;
+    }
+
+    .day-header h3 {
+        font-size: 38px;
+    }
+
+
+    .timeline::before {
+        left: 65px;
+    }
+
+    .event {
+        grid-template-columns: 45px 1fr;
+
+        gap: 35px;
+    }
+
+    .event::before {
+        left: 59px;
+    }
+
+    .event time {
+        font-size: 9px;
+    }
+
+    .event-card {
+        padding: 20px;
+    }
+
+    .event-card h4 {
+        font-size: 19px;
+    }
+
+
+    .route {
+        padding: 22px;
+    }
+
+    .route p {
+        font-size: 10px;
+    }
+
+
+    .flight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flight-card {
+        padding: 30px;
+    }
+
+
+    .hotel-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hotel-image {
+        min-height: 280px;
+    }
+
+    .hotel-info {
+        padding: 30px;
+    }
+
+    .hotel-info h3 {
+        font-size: 34px;
+    }
+
+
+    .empty-day {
+        min-height: 250px;
+
+        padding: 30px;
+    }
+
+    .empty-day h3 {
+        font-size: 30px;
+    }
+
+
+    footer {
+        padding: 80px 20px;
+    }
+
+}
